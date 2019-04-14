@@ -1,16 +1,18 @@
 <?php
-setLocale(LC_CTYPE, 'FR_fr.UTF-8');
+setlocale(LC_ALL,"US");
 
-
-function convertToString($number){
-    $number_string = (string) $number;
+function convertToString( $number){
+    $number_string =  $number;
     $string = '';
     $number = '';
     for($i = 0; $i < strlen($number_string);$i++){
-            $number .= (int) $number_string[$i];
+            $number .= $number_string[$i];
+
         if(ctype_alpha(chr($number)) || $number == 32) {
+            echo $number ;
+            echo "<br>";
             $string .= chr($number);
-            echo $string ;
+//            echo $number ;
             $number = '';
         }
     }
@@ -25,8 +27,13 @@ function convertToASCII($string){
     return $number ;
 }
 
-convertToString(8432833211532114);
+echo convertToString("1161011151161051101033211610410511532116101120116");
 echo "<br>";
-echo convertToASCII('This is true ');
+
+echo convertToASCII('testing this text');
+echo "<br>";
+
+
+//echo convertToASCII('pola');
 echo "<pre>";
 echo "</pre>";
