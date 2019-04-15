@@ -2,7 +2,7 @@
 /**
  * Author : Paula George
  *
- * Subject : This library converts from and to ASCII not a big deal ;)
+ * Subject : This library converts from text to ASCII and the opposite not a big deal ;)
  *
  * Date : 4/15/2019
  */
