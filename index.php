@@ -1,37 +1,54 @@
 <?php
+/**
+ * Author : Paula George
+ *
+ * Subject : This library converts from and to ASCII not a big deal ;)
+ *
+ * Date : 4/15/2019
+ */
 setlocale(LC_ALL,"US");
-
-function convertToString( $number){
-    $number_string =  $number;
-    $string = '';
-    $number = '';
-    for($i = 0; $i < strlen($number_string);$i++){
-            $number .= $number_string[$i];
-
-        if(ctype_alpha(chr($number)) || is_numeric(chr($number)) ||preg_match('/[\'^£$%&*.()}:{@#~?><>,|=_+¬-]/', chr($number)) || $number == 32) {
-
-            $string .= chr($number);
-            $number = '';
+class Ascii{
+    /**
+     * @param string  $ascii_number
+     *
+     * This function convert from ascii to string also creates
+     *
+     * @return string
+     */
+    public static function convertToString($ascii_number){
+        $num =  $ascii_number;
+        $string = '';
+        $ascii_number = '';
+        for($i = 0; $i < strlen($num);$i++){
+            $ascii_number .= $num[$i];
+            if(ctype_alpha(chr($ascii_number)) || is_numeric(chr($ascii_number)) ||preg_match('/[\'^£$%&*.()}:{@#~?><>,|=_+¬-]/', chr($ascii_number)) || $ascii_number == 32) {
+                $string .= chr($ascii_number);
+                $ascii_number = '';
+            }
         }
+        return $string;
     }
-    return $string;
+
+    /**
+     * @param $string
+     *
+     * This function convert from text to ascii numbers
+     *
+     * @return string
+     */
+    public static function convertToASCII($string){
+        $ascii_number = '';
+        for($i = 0;$i < strlen($string);$i++){
+            $ascii_number .= ord($string[$i]);
+        }
+        return $ascii_number ;
+    }
 }
 
-function convertToASCII($string){
-    $number = '';
-    for($i = 0;$i < strlen($string);$i++){
-        $number .= ord($string[$i]);
-    }
-    return $number ;
-}
 
-echo convertToString("116104105115321051153297324444443211610111511632444444");
+echo Ascii::convertToString("104971181013297321101059910132100971213280971171089732711011111141031013258683246");
 echo "<br>";
 
-echo convertToASCII('this is a ,,, test ,,,');
+echo Ascii::convertToASCII('have a nice day Paula George :D .');
 echo "<br>";
 
-
-//echo convertToASCII('pola');
-echo "<pre>";
-echo "</pre>";
