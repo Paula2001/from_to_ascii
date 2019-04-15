@@ -46,9 +46,9 @@ class Ascii{
 }
 
 
-echo Ascii::convertToString("104971181013297321101059910132100971213280971171089732711011111141031013258683246");
+echo "The Ascii number : ". Ascii::convertToString("104971181013297321101059910132100971213280971171089732711011111141031013258683246");
+
 echo "<br>";
 
-echo Ascii::convertToASCII('have a nice day Paula George :D .');
-echo "<br>";
+echo "The text : ".Ascii::convertToASCII('have a nice day Paula George :D .');
 
