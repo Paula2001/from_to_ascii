@@ -21,7 +21,7 @@ class Ascii{
         $ascii_number = '';
         for($i = 0; $i < strlen($num);$i++){
             $ascii_number .= $num[$i];
-            if(ctype_alpha(chr($ascii_number)) || is_numeric(chr($ascii_number)) ||preg_match('/[\'^£$%&*.()}:{@#~?><>,|=_+¬-]/', chr($ascii_number)) || $ascii_number == 32) {
+            if(ctype_alpha(chr($ascii_number)) || is_numeric(chr($ascii_number)) ||preg_match('/[\'^£$%&*.()}":{@#~?>\/<>,|=_+¬-]/', chr($ascii_number)) || $ascii_number == 32) {
                 $string .= chr($ascii_number);
                 $ascii_number = '';
             }
@@ -46,9 +46,9 @@ class Ascii{
 }
 
 
-echo "The Ascii number : ". Ascii::convertToString("104971181013297321101059910132100971213280971171089732711011111141031013258683246");
+echo "The Ascii number : ". Ascii::convertToString("609732104114101102613410511010010112046112104112346211610111511660479762");
 
 echo "<br>";
 
-echo "The text : ".Ascii::convertToASCII('have a nice day Paula George :D .');
+echo "The text : ".Ascii::convertToASCII('<a href="index.php">test</a>');
 
